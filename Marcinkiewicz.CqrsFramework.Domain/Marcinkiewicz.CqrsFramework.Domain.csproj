@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Marcinkiewicz.CqrsFramework.Data\Marcinkiewicz.CqrsFramework.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Accountant\" />
+    <Folder Include="Manager\" />
+    <Folder Include="Document\" />
+  </ItemGroup>
+
+</Project>

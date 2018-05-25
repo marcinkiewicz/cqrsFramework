@@ -1,8 +1,5 @@
 ﻿using Marcinkiewicz.CqrsFramework.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Marcinkiewicz.CqrsFramework.Data.Configuration
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Marcinkiewicz.CqrsFramework.Data.Models
+﻿namespace Marcinkiewicz.CqrsFramework.Data.Models
 {
     public abstract class User : TrackableEntity
     {
