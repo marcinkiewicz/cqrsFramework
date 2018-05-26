@@ -10,12 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Marcinkiewicz.CqrsFramework.Data\Marcinkiewicz.CqrsFramework.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Accountant\" />
-    <Folder Include="Manager\" />
-    <Folder Include="Document\" />
+    <ProjectReference Include="..\Marcinkiewicz.CqrsFramework.Domain.Common\Marcinkiewicz.CqrsFramework.Domain.Common.csproj" />
+    <ProjectReference Include="..\Marcinkiewicz.CqrsFramework.Security\Marcinkiewicz.CqrsFramework.Security.csproj" />
   </ItemGroup>
 
 </Project>

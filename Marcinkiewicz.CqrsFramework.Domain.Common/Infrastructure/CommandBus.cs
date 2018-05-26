@@ -32,6 +32,7 @@ namespace Marcinkiewicz.CqrsFramework.Domain.Common
         /// <inheritdoc />
         public async Task SendAsync<TCommand>(TCommand command) where TCommand : ICommand
         {
+            // Find handler
             ICommandHandler<TCommand> handler = this.handlersFactory(typeof(TCommand)) as ICommandHandler<TCommand>;
             if (handler == null)
             {

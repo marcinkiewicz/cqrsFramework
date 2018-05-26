@@ -8,12 +8,12 @@ namespace Marcinkiewicz.CqrsFramework.Data.Models
     public class Accountant: User
     {
         /// <summary>
-        /// Gets or sets first name of the doctor.
+        /// Gets or sets first name of the accountant.
         /// </summary>
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or sets last name of the doctor.
+        /// Gets or sets last name of the accountant.
         /// </summary>
         public string LastName { get; set; }
 
