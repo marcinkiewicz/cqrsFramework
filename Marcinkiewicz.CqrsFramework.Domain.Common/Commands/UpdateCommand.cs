@@ -3,7 +3,7 @@
 namespace Marcinkiewicz.CqrsFramework.Domain.Common
 {
     /// <summary>
-    /// Abstract class for update type of commands.
+    /// Abstract class for update type of commands
     /// </summary>
     public abstract class UpdateCommand: ICommand
     {

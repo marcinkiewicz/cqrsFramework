@@ -1,7 +1,7 @@
 ﻿namespace Marcinkiewicz.CqrsFramework.Domain.Common
 {
     /// <summary>
-    /// Saga command continued with event.
+    /// Command continued with <typeparamref name="TEvent"/> event
     /// </summary>
     public interface ICommand<TEvent> where TEvent: ICommandExecutedEvent
     {
@@ -12,7 +12,7 @@
     }
 
     /// <summary>
-    /// No saga command
+    /// Command continued with <see cref="CommandExecutedEvent"/>
     /// </summary>
     public interface ICommand: ICommand<CommandExecutedEvent>
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Marcinkiewicz.CqrsFramework.Domain.Accountant.Models
 {
-    public class AccountantDto: IdDto, IQueryModel
+    public class AccountantDto : IdDto, IQueryModel
     {
         /// <summary>
         /// Gets or sets first name of the accountant

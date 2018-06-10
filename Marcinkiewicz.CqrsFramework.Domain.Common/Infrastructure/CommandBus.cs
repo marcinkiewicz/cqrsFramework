@@ -42,8 +42,8 @@ namespace Marcinkiewicz.CqrsFramework.Domain.Common
             // Execute command by handler
             await handler.HandleImmediateAsync(command);
 
-            // Broadcast event if not suppressed
-            if (!command.SuppressEvent)
+            // Broadcast event if not suppressed and service bus registered
+            if (this.serviceBus != null && !command.SuppressEvent)
             {
                 IEnumerable<ICommandExecutedEvent> domainEvents = this.eventsFactory(command);
                 foreach (var domainEvent in domainEvents)

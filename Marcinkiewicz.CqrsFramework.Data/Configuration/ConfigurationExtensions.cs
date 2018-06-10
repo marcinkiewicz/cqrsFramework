@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Marcinkiewicz.CqrsFramework.Data.Configuration
 {
     /// <summary>
-    /// Class containing <see cref="IServiceCollection"/> extensions 
+    /// Class containing <see cref="IServiceCollection"/> extensions
     /// to register database in the IoC container.
     /// </summary>
     public static class ConfigurationExtensions
@@ -22,7 +22,7 @@ namespace Marcinkiewicz.CqrsFramework.Data.Configuration
                     options.UseSqlServer(connectionString);
                 });
 
-            // Register resolving by interface
+            // Register instance
             services.AddScoped<IDataContext, DataContext>();
         }
     }

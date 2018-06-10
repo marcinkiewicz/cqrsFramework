@@ -8,19 +8,21 @@ namespace Marcinkiewicz.CqrsFramework.Domain.Common.Configuration
 {
     /// <summary>
     /// Class containing <see cref="IServiceCollection"/> extensions 
-    /// to register database in the IoC container.
+    /// to register database in the IoC container
     /// </summary>
     public static class ConfigurationExtensions
     {
         private const string DomainAssembylName = "Marcinkiewicz.CqrsFramework.Domain";
+
         /// <summary>
-        /// Register command handlers, commands, queries and infrastructure.
+        /// Register command handlers, commands, queries and infrastructure
         /// </summary>
-        /// <param name="services">DI container</param>
+        /// <param name="services">IoC container</param>
         public static void RegisterDomain(this IServiceCollection services)
         {
             services.AddSingleton<IQueryFactory, QueryFactory>();
             services.AddScoped<ICommandBus, CommandBus>();
+            services.AddScoped<IServiceBus, DummyServiceBus>();
 
             IEnumerable<TypeInfo> assembliesTypesInfo = GetTypesInfo(DomainAssembylName);
             AddCommandHandlers(services, assembliesTypesInfo);

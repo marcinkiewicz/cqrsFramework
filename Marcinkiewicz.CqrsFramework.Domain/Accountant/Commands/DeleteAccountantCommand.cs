@@ -4,7 +4,7 @@ using System;
 namespace Marcinkiewicz.CqrsFramework.Domain.Accountant.Commands
 {
     /// <summary>
-    /// Delete client command
+    /// Delete accountant command
     /// </summary>
     public class DeleteAccountantCommand : DeleteCommand
     {

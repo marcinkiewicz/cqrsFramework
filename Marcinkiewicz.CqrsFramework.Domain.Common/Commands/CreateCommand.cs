@@ -3,7 +3,7 @@
 namespace Marcinkiewicz.CqrsFramework.Domain.Common
 {
     /// <summary>
-    /// Abstract class for creational type of commands that automaticaly creates new Id for entity.
+    /// Abstract class for creational type of commands that automaticaly creates new Id for entity
     /// </summary>
     public abstract class CreateCommand : ICommand
     {
