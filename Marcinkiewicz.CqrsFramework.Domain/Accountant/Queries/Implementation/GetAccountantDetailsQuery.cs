@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Marcinkiewicz.CqrsFramework.Domain.Accountant.Queries
 {
-    public class GetAccountantDetailsQuery : QueryBase, IQuery<AccountantDto, IdQueryParam>
+    internal class GetAccountantDetailsQuery : QueryBase, IGetAccountantDetailsQuery
     {
         /// <summary>
         /// Initialize new instance of <see cref="GetAccountantDetailsQuery"/>

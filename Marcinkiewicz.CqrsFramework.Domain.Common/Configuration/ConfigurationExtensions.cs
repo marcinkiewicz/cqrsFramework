@@ -18,13 +18,14 @@ namespace Marcinkiewicz.CqrsFramework.Domain.Common.Configuration
         /// Register command handlers, commands, queries and infrastructure
         /// </summary>
         /// <param name="services">IoC container</param>
-        public static void RegisterDomain(this IServiceCollection services)
+        /// <param name="domainAssemblyName">Custom domain assembly name</param>
+        public static void RegisterDomain(this IServiceCollection services, string domainAssemblyName = DomainAssembylName)
         {
             services.AddSingleton<IQueryFactory, QueryFactory>();
             services.AddScoped<ICommandBus, CommandBus>();
             services.AddScoped<IServiceBus, DummyServiceBus>();
 
-            IEnumerable<TypeInfo> assembliesTypesInfo = GetTypesInfo(DomainAssembylName);
+            IEnumerable<TypeInfo> assembliesTypesInfo = GetTypesInfo(domainAssemblyName);
             AddCommandHandlers(services, assembliesTypesInfo);
             AddEvents(services, assembliesTypesInfo);
             AddQueries(services, assembliesTypesInfo);
@@ -37,7 +38,7 @@ namespace Marcinkiewicz.CqrsFramework.Domain.Common.Configuration
             var domainModelFactoryTypes = typesInfo
                 .Where(ti => ti.IsClass)
                 .Where(ti => !ti.IsAbstract)
-                .Where(ti => typeof(IDomainModelFactory).IsAssignableFrom(ti));
+                .Where(ti => typeof(IDataModelFactory).IsAssignableFrom(ti));
 
             foreach (var domainModelFactoryType in domainModelFactoryTypes)
             {
@@ -47,7 +48,7 @@ namespace Marcinkiewicz.CqrsFramework.Domain.Common.Configuration
                 // and not with IDomainModelFactory
                 Type specificDomainModelFactory = domainModelFactoryType
                     .ImplementedInterfaces
-                    .Where(i => typeof(IDomainModelFactory).IsAssignableFrom(i))
+                    .Where(i => typeof(IDataModelFactory).IsAssignableFrom(i))
                     .First();
 
                 services.AddScoped(specificDomainModelFactory, domainModelFactoryType);
@@ -91,7 +92,14 @@ namespace Marcinkiewicz.CqrsFramework.Domain.Common.Configuration
 
             foreach (var queryType in queryTypes)
             {
-                services.AddScoped(queryType);
+                foreach(var implementedInterface in queryType.ImplementedInterfaces)
+                {
+                    // Register only specific interface
+                    if (implementedInterface != typeof(IQuery))
+                    {
+                        services.AddScoped(implementedInterface, queryType);
+                    }
+                }
             }
         }
 

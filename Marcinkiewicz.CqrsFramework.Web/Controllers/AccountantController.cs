@@ -26,7 +26,7 @@ namespace Marcinkiewicz.CqrsFramework.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetList()
         {
-            GetAccountantsListQuery query = this.queryFactory.Create<GetAccountantsListQuery>();
+            IGetAccountantsListQuery query = this.queryFactory.Create<IGetAccountantsListQuery>();
 
             // Configured to contain only first and last name
             IEnumerable<AccountantDto> result = await query.GetResultsAsync();
@@ -64,7 +64,7 @@ namespace Marcinkiewicz.CqrsFramework.Web.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            GetAccountantDetailsQuery query = this.queryFactory.Create<GetAccountantDetailsQuery>();
+            IGetAccountantDetailsQuery query = this.queryFactory.Create<IGetAccountantDetailsQuery>();
 
             // Configured to contain all details including documents list
             AccountantDto result = await query.GetResultsAsync(new IdQueryParam(id));

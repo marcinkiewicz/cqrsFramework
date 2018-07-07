@@ -12,7 +12,7 @@ namespace Marcinkiewicz.CqrsFramework.Domain.Accountant.Queries
     /// <summary>
     /// Get list od diet templates for trainer
     /// </summary>
-    public class GetAccountantsListQuery : QueryBase, IQueryCollection<AccountantDto>
+    internal class GetAccountantsListQuery : QueryBase, IGetAccountantsListQuery
     {
         /// <summary>
         /// Initialize new instance of <see cref="GetAccountantsListQuery"/>

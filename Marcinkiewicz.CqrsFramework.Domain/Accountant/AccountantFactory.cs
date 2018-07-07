@@ -8,7 +8,7 @@ namespace Marcinkiewicz.CqrsFramework.Domain.Accountant
     /// <summary>
     /// Accountant data model factory
     /// </summary>
-    internal class AccountantFactory : IDomainModelFactory
+    internal class AccountantFactory : IDataModelFactory
     {
         private readonly IPasswordService passwordService;
 
